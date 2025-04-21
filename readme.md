@@ -4,11 +4,9 @@
 ## Структура проекта:
 holyweb_test_task/
 
-├── .venv/ - виртуальное окружение Python
-    
 ├── .gitignore - игнорируемые файлы (для git)
     
-├── requirements.txt - Зависимости
+├── requirements.txt - список зависимостей
     
 ├── app/ - директория основной части проекта
     
@@ -57,11 +55,11 @@ py -m venv .venv
 ### 4. Создание администратора:
 Администратор по умолчанию:
 
-Username: admin
+**Username**: admin
 
-Email address: admin@example.com
+**Email address**: admin@example.com
 
-Password: admin
+**Password**: admin
 
 Вы можете создать своего администратора командой:
 `python app/manage.py createsuperuser `
@@ -70,7 +68,9 @@ Password: admin
 `python app/manage.py runserver `
 
 Готово, теперь вы можете отсылать запросы к серверу.
-Сервер будет доступен: http://127.0.0.1:8000
+Сервер будет доступен по: http://127.0.0.1:8000
+
+Управление сервером через админа будет доступна по: http://127.0.0.1:8000/admin
 
 ## API Endpoints
 
@@ -78,6 +78,8 @@ Password: admin
 
 GET /api/doctors/ - получить список врачей
  
-GET /api/appointments/?client_fullname=ФИО - получить список записей к врачам (ФИО через проблеы)
+GET /api/appointments/?client_fullname=ФИО - получить список записей к врачам (ФИО через пробелы)
 
 POST /api/appointments/create/?client_fullname=ФИО - создать запись 
+
+**Добавление пользователя в базу данных происходит в момент создания записи к врачу!**
