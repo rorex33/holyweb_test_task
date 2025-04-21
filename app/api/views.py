@@ -20,30 +20,39 @@ def get_appointments(request):
         return Response({'error': 'client_fullname parameter is required'}, 
                        status=status.HTTP_400_BAD_REQUEST)
 
-    # Разбиваем ФИО на части
     parts = re.split(r'\s+', fullname)
     if len(parts) < 2:
         return Response({'error': 'Invalid fullname format'}, 
                        status=status.HTTP_400_BAD_REQUEST)
 
-    # Ищем клиента по разным комбинациям ФИО
     query = Q()
+    fields_mapping = [
+        ('surname', 'name'),
+        ('name', 'surname')
+    ]
+    
     if len(parts) == 2:
-        query |= Q(surname__iexact=parts[0], name__iexact=parts[1])
-        query |= Q(name__iexact=parts[0], surname__iexact=parts[1])
+        for field1, field2 in fields_mapping:
+            query |= Q(**{f"{field1}__iexact": parts[0], f"{field2}__iexact": parts[1]})
     else:
-        query |= Q(surname__iexact=parts[0], name__iexact=parts[1], patronymic__iexact=parts[2])
-        query |= Q(name__iexact=parts[0], surname__iexact=parts[1], patronymic__iexact=parts[2])
+        for field1, field2 in fields_mapping:
+            query |= Q(
+                **{
+                    f"{field1}__iexact": parts[0],
+                    f"{field2}__iexact": parts[1],
+                    "patronymic__iexact": parts[2]
+                }
+            )
 
     try:
         client = Client.objects.get(query)
+        appointments = Appointment.objects.filter(client=client).select_related('doctor')
+        serializer = AppointmentSerializer(appointments, many=True)
+        return Response({'data': serializer.data})
+        
     except Client.DoesNotExist:
         return Response({'error': 'Client not found'}, 
                        status=status.HTTP_404_NOT_FOUND)
-
-    appointments = Appointment.objects.filter(client=client).select_related('doctor')
-    serializer = AppointmentSerializer(appointments, many=True)
-    return Response({'data': serializer.data})
 
 @api_view(['POST'])
 def create_appointment(request):
@@ -130,19 +139,6 @@ def create_appointment(request):
             name=parts[1],
             patronymic=parts[2]
         )
-
-    # Проверка на дублирование приёма
-    if Appointment.objects.filter(start_at=start_at, doctor=doctor).exists():
-        return Response({'error': 'duplicate'}, 
-                       status=status.HTTP_400_BAD_REQUEST)
-
-    # Проверка что у клиента нет другого приёма в это время
-    if Appointment.objects.filter(
-        client=client,
-        start_at__range=(start_at, end_at - timedelta(minutes=1))
-    ).exists():
-        return Response({'error': 'client have another appointment to this time'}, 
-                       status=status.HTTP_400_BAD_REQUEST)
 
     # Создаём приём
     appointment = Appointment.objects.create(
