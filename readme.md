@@ -33,9 +33,9 @@ git clone https://github.com/rorex33/holyweb_test_task
 ```
 # Linux/MacOS
 
-python3 -m venv .venv       # создаём виртуальное окружение
+python3.13 -m venv .venv       # создаём виртуальное окружение
 
-source .venv/bin/activate   # активируем его
+source .venv/bin/activate      # активируем виртуальное окружение
 ```
 
 ```
