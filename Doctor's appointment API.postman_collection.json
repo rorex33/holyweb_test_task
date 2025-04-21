@@ -1,0 +1,1607 @@
+{
+	"info": {
+		"_postman_id": "7f297d83-ca7d-472d-bab0-e3cb47bb82b6",
+		"name": "Doctor's appointment API",
+		"description": "API для управления записями пациентов к врачам.  \nБазовый URL: [http://127.0.0.1:8000/api/](http://127.0.0.1:8000/api/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44259599",
+		"_collection_link": "https://ivan-382397.postman.co/workspace/Ivan's-Workspace~cf46c9e7-af8f-4f9e-8b41-c86667b255e5/collection/44259599-7f297d83-ca7d-472d-bab0-e3cb47bb82b6?action=share&source=collection_link&creator=44259599"
+	},
+	"item": [
+		{
+			"name": "Doctors",
+			"item": [
+				{
+					"name": "200 - удачное выполнение запроса",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}doctors/",
+							"host": [
+								"{{base_url}}doctors"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Запрос для получения списка докторов."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}doctors/",
+									"host": [
+										"{{base_url}}doctors"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:20:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, GET"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "650"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"name\": \"Алексей\",\n        \"surname\": \"Попов\",\n        \"patronymic\": \"Геннадьевич\",\n        \"specialization\": \"Терапевт\"\n    },\n    {\n        \"name\": \"Николай\",\n        \"surname\": \"Резаков\",\n        \"patronymic\": \"Леонидович\",\n        \"specialization\": \"Хирург\"\n    },\n    {\n        \"name\": \"Иван\",\n        \"surname\": \"Купитман\",\n        \"patronymic\": \"Натанович\",\n        \"specialization\": \"Гинеколог\"\n    },\n    {\n        \"name\": \"Андрей\",\n        \"surname\": \"Быков\",\n        \"patronymic\": \"Евгеньевич\",\n        \"specialization\": \"Гастроэнтеролог\"\n    },\n    {\n        \"name\": \"Анастасия\",\n        \"surname\": \"Кисегач\",\n        \"patronymic\": \"Константиновна\",\n        \"specialization\": \"Гастроэнтеролог\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "Запросы для получения списка врачей."
+		},
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "200 - удачное выполнение запроса",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}appointments/?client_fullname=Иван Иванов Иванович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Иван Иванов Иванович"
+								}
+							]
+						},
+						"description": "Данный эндпоинт запрашивает приёмы у врачей по ФИО клиента."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}appointments/?client_fullname=Иван Иванов Иванович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Иван Иванов Иванович"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:06:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "242"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"doctor_fullname\": \"Попов Алексей Геннадьевич\",\n            \"date\": \"2025-05-20\",\n            \"time\": \"15:00:00\"\n        },\n        {\n            \"id\": 2,\n            \"doctor_fullname\": \"Попов Алексей Геннадьевич\",\n            \"date\": \"2025-04-21\",\n            \"time\": \"17:00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - client_fullname parameter is required",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"description": "Получаем данный ответ, если по каким-то причинам имя пользователя не было передано."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}appointments/?client_fullname=",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:13:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"client_fullname parameter is required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - Invalid fullname format",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"description": "Получаем данный ответ, если по каким-то причинам имя пользователя оказалось не полным."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}appointments/?client_fullname=Иван",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Иван"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:15:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid fullname format\"\n}"
+						}
+					]
+				},
+				{
+					"name": "404 - Client not found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}appointments/?client_fullname=Иван Кусайло Алексеевич",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Иван Кусайло Алексеевич"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если данный пользователь не был найден."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}appointments/?client_fullname=Иван Кусайло Алексеевич",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Иван Кусайло Алексеевич"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:17:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, GET"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Client not found\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Запросы для получения приёмов у врачей по имени пользователя.\n\nИмя пользователя указывается в url: {{base_url}}appointments/?client_fullname=(Имя Фамилия Отчество)"
+		},
+		{
+			"name": "Create appointment",
+			"item": [
+				{
+					"name": "400 - client_fullname parameter is required",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2023-05-20\",\n    \"time\": \"15:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": ""
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если по каким-то причинам имя пользователя не было передано."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2023-05-20\",\n    \"time\": \"15:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:25:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"client_fullname parameter is required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - doctor_id, date and time are required",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Алексей Тищенко Петрович"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если не был отправлен хотя бы один из параметров."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:27:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"doctor_id, date and time are required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - Invalid date or time format",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2023.05.20\",\n    \"time\": \"15:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Алексей Тищенко Петрович"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если время или дата переданы неправильно (дата ГГ-ММ-ДД, время 15:00)."
+					},
+					"response": [
+						{
+							"name": "400 - Invalid date or time format",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2023.05.20\",\n    \"time\": \"15:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:32:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid date or time format\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - appointment to past",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2023-05-20\",\n    \"time\": \"15:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Алексей Тищенко Петрович"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если дата указанная дата уже прошла."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2023-05-20\",\n    \"time\": \"15:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:37:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"appointment to past\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - bad day of week",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-04-26\",\n    \"time\": \"15:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Алексей Тищенко Петрович"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если выбранная дата приходится на выходной."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-04-26\",\n    \"time\": \"15:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:38:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"bad day of week\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - bad time - now work in this time",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-06-20\",\n    \"time\": \"20:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"description": "Получаем данный ответ, если выбранное время является не рабочим."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-06-20\",\n    \"time\": \"20:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:40:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"bad time - now work in this time\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - bad time - duration limit exceeded",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-04-22\",\n    \"time\": \"17:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Алексей Тищенко Петрович"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если конец приёма приходится на не рабочие часы."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-04-22\",\n    \"time\": \"17:30\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:42:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"bad time - duration limit exceeded\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - doctor not found",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 19,\n    \"date\": \"2025-04-22\",\n    \"time\": \"15:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Алексей Тищенко Петрович"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если доктор с таким id не найден."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 19,\n    \"date\": \"2025-04-22\",\n    \"time\": \"15:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:43:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"doctor not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "400 - doctor is busy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-04-21\",\n    \"time\": \"16:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Алексей Тищенко Петрович"
+								}
+							]
+						},
+						"description": "Получаем данный ответ, если в на эту дату и время уже записан другой клиент."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 1,\n    \"date\": \"2025-04-21\",\n    \"time\": \"16:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Алексей Тищенко Петрович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Алексей Тищенко Петрович"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:45:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"doctor is busy\"\n}"
+						}
+					]
+				},
+				{
+					"name": "200 - успешное выполнение запроса",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": 2,\n    \"date\": \"2025-07-21\",\n    \"time\": \"15:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}appointments/create/?client_fullname=Сергей Разумовский Степанович",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "client_fullname",
+									"value": "Сергей Разумовский Степанович"
+								}
+							]
+						},
+						"description": "Запрос для создания записи к врачу."
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": 2,\n    \"date\": \"2025-07-21\",\n    \"time\": \"15:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}appointments/create/?client_fullname=Сергей Разумовский Степанович",
+									"host": [
+										"{{base_url}}appointments"
+									],
+									"path": [
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "client_fullname",
+											"value": "Сергей Разумовский Степанович"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 03:58:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, POST"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": \"appointment created\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Запросы для создания приёма у врача.\n\nИмя пользователя указывается в url: [http://127.0.0.1:8000/api/appointments/create/?client_fullname=](http://127.0.0.1:8000/api/appointments/?client_fullname=)(Имя Фамилия Отчество)\n\nВ теле запроса указывается id врача, дата и время приёма:  \n{  \n\"doctor_id\": 1,  \n\"date\": \"2023-05-20\",  \n\"time\": \"15:00\"  \n}"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
