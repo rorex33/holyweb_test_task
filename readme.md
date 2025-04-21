@@ -5,6 +5,8 @@
 holyweb_test_task/
 
 ├── **.gitignore** - игнорируемые файлы (для git)
+
+├── **Doctor's appointment API.postman_collection.json** - коллекция запросов к серверу
     
 ├── **requirements.txt** - список зависимостей
     
