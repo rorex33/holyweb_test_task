@@ -82,4 +82,6 @@ GET /api/appointments/?client_fullname=ФИО - получить список з
 
 POST /api/appointments/create/?client_fullname=ФИО - создать запись 
 
+Протестируем доступ к серверу: `curl "http://127.0.0.1:8000/api/doctors/`
+
 **Добавление пользователя в базу данных происходит в момент создания записи к врачу!**
